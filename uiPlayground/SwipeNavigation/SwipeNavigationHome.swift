@@ -27,12 +27,15 @@ struct SwipeNavigationHome: View {
         ZStack {
             
             CenterView(activeView: activeView)
+                .animation(.easeInOut)
             LeftView(activeView: activeView)
                 .offset(x: self.activeView == currentView.left ? 0 : -screenWidth)
                 .offset(x: activeView != .right ? viewState.width : 0)
+                .animation(.easeInOut)
             RightView(activeView: self.activeView)
                 .offset(x: self.activeView == currentView.right ? 0 : screenWidth)
                 .offset(x: activeView != .left ? viewState.width : 0)
+                .animation(.easeInOut)
         }
         
         .gesture(
